@@ -1,11 +1,6 @@
-// Global layout component that wraps all pages
-// Will include:
-// - Navbar component at the top
-// - Main content area (children)
-// - Footer component at the bottom
-// - Consistent spacing and structure across all pages
-
 import { ReactNode } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,12 +8,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div>
-      {/* Navbar */}
-      <main>
+    <div className="flex flex-col min-h-screen bg-white">
+      <Navbar />
+      <main className="flex-grow">
         {children}
       </main>
-      {/* Footer */}
+      <Footer />
     </div>
   );
 }
